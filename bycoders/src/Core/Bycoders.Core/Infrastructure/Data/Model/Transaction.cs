@@ -25,6 +25,7 @@ namespace Bycoders.Domain.Infrastructure.Data.Model
             retorno.CardNumber = line.Substring(30, 12).Trim();
             retorno.StoreManager = line.Substring(48, 14).Trim();
             retorno.StoreName = line.Substring(62).Trim();
+            retorno.CreatedAt = DateTime.Now;
             return retorno;
         }
     }

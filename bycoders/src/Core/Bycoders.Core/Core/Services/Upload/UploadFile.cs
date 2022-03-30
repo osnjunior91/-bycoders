@@ -9,6 +9,11 @@ namespace Bycoders.Domain.Core.Services.Upload
 {
     public class UploadFile : IUploadFile
     {
+        private readonly ITransactionService _transactionService;
+        public UploadFile(ITransactionService transactionService)
+        {
+            _transactionService = transactionService;
+        }
         public async Task UploadFileAsync(IFormFile file)
         {
             if (file == null || file.Length == 0)
@@ -23,6 +28,7 @@ namespace Bycoders.Domain.Core.Services.Upload
                     transactions.Add((Transaction)await reader.ReadLineAsync());
                 }
             }
+            await _transactionService.InsertListAsync(transactions);
         }
     }
 }

@@ -73,18 +73,5 @@ namespace Bycoders.Domain.Infrastructure.Data.Context
             base.OnModelCreating(modelBuilder);
         }
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            foreach (var entry in this.ChangeTracker.Entries()
-                .Where(e => e.State == EntityState.Added))
-            {
-                if (entry.Property("CreatedAt")?.CurrentValue == null)
-                {
-                    entry.Property("Id").CurrentValue = Guid.NewGuid();
-                    entry.Property("CreatedAt").CurrentValue = DateTime.Now;
-                }
-            }
-            return base.SaveChangesAsync(cancellationToken);
-        }
     }
 }
