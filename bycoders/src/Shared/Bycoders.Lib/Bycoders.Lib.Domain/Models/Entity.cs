@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bycoders.Lib.Bycoders.Lib.Domain.Models
 {
-    class Entity
+    public abstract class Entity
     {
+        public Guid Id { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }
