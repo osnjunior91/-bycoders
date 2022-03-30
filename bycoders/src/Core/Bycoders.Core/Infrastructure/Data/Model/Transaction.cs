@@ -6,6 +6,7 @@ namespace Bycoders.Domain.Infrastructure.Data.Model
 {
     public class Transaction : Entity
     {
+        public int TypeTransactionCode { get; set; }
         public TypeTransaction Type { get; set; }
         public DateTime Date { get; set; }
         public float Value { get; set; }
@@ -17,8 +18,8 @@ namespace Bycoders.Domain.Infrastructure.Data.Model
         public static explicit operator Transaction(string line)
         {
             var retorno = new Transaction();
-            retorno.Type = new TypeTransaction() { Code = int.Parse(line.Substring(0, 1)) };
-            retorno.Date = line.Substring(1, 8).CNABDate();
+            retorno.TypeTransactionCode = int.Parse(line.Substring(0, 1));
+            retorno.Date = line.Substring(1, 8).CNABDate(line.Substring(42, 6));
             retorno.Value = float.Parse(line.Substring(9, 10)) / 100;
             retorno.PersonDocument = line.Substring(19, 11).Trim();
             retorno.CardNumber = line.Substring(30, 12).Trim();
