@@ -21,7 +21,8 @@ namespace Bycoders.Domain.Infrastructure.Data.Repository
 
         public async Task<List<Transaction>> GetAllByNameAsync(string storeName)
         {
-            return await _dataset.AsQueryable().Where(x => x.StoreName.Contains(storeName)).ToListAsync();
+            return await _dataset.AsQueryable().Where(x => x.StoreName.Contains(storeName))
+                .Include(fk => fk.Type).ToListAsync();
         }
 
         public async Task InsertListAsync(List<Transaction> items)
