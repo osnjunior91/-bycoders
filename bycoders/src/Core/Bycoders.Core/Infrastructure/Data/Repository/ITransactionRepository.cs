@@ -8,5 +8,6 @@ namespace Bycoders.Domain.Infrastructure.Data.Repository
     public interface ITransactionRepository: IRepository<Transaction>
     {
         Task InsertListAsync(List<Transaction> items);
+        Task<List<Transaction>> GetAllByNameAsync(string storeName);
     }
 }

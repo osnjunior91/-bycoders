@@ -14,6 +14,12 @@ namespace Bycoders.Domain.Core.Services
         {
             _transactionRepository = transactionRepository;
         }
+
+        public async Task<List<Transaction>> GetAllByNameAsync(string storeName)
+        {
+            return await _transactionRepository.GetAllByNameAsync(storeName);
+        }
+
         public async Task InsertListAsync(List<Transaction> items)
         {
             await _transactionRepository.InsertListAsync(items);

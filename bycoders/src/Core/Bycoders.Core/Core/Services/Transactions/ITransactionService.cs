@@ -8,5 +8,7 @@ namespace Bycoders.Domain.Core.Services
     public interface ITransactionService: IService<Transaction>
     {
         Task InsertListAsync(List<Transaction> items);
+
+        Task<List<Transaction>> GetAllByNameAsync(string storeName);
     }
 }

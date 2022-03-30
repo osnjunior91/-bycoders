@@ -8,7 +8,7 @@ namespace Bycoders.Api.Controllers
 {
     [Route("api/v1/bulk")]
     [ApiController]
-    public class BulkController : Controller
+    public class BulkController : ControllerBase
     {
         private readonly IUploadFile _uploadFileService;
         public BulkController(IUploadFile uploadFileService)
