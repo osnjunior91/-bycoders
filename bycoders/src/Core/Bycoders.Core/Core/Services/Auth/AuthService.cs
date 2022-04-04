@@ -2,12 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Bycoders.Domain.Core.Services.Auth
 {
@@ -19,7 +16,7 @@ namespace Bycoders.Domain.Core.Services.Auth
         {
             _configuration = configuration;
         }
-        public string LoginAsync(Login login)
+        public string Login(Login login)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["SecretKey"]);

@@ -28,7 +28,7 @@ namespace Bycoders.Api.Controllers
         {
             try
             {
-                return Ok( _authService.LoginAsync(login));
+                return Ok( _authService.Login(login));
             }
             catch (Exception ex)
             {
