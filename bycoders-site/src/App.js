@@ -1,6 +1,7 @@
 import { Menu } from './components/commom';
-import { TransactionsView } from './components/features';
+import { Route, Routes } from "react-router-dom";
 import './App.css'
+import { Login, TransactionsView, Upload } from './components/features';
 
 function App() {
   return (
@@ -9,7 +10,11 @@ function App() {
         <Menu />
       </div>
       <div className="container" >
-        <TransactionsView />
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="transactions" element={<TransactionsView />} />
+          <Route path="upload" element={<Upload />} />
+        </Routes>
       </div>
     </div>
   );

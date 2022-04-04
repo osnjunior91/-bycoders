@@ -2,7 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 import './style.css'
 
 function Menu() {
@@ -14,9 +14,15 @@ function Menu() {
                         ByCoders
                     </Typography>
                     <div>
-                        <Button color="inherit">Carregar Arquivo</Button>
+                        <Link className="link" to="/upload">
+                            Carregar Arquivo
+                        </Link>
                     </div>
-                    <Button color="inherit">Visualizar dados</Button>
+                    <div>
+                        <Link className="link" to="/transactions">
+                            Visualizar dados
+                        </Link>
+                    </div>
                 </Toolbar>
             </AppBar>
         </div>
