@@ -1,4 +1,5 @@
-﻿using Bycoders.Domain.Core.Services;
+﻿using Bycoders.Api.Model.Transactions;
+using Bycoders.Domain.Core.Services;
 using Bycoders.Domain.Infrastructure.Data.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,14 +21,14 @@ namespace Bycoders.Api.Controllers
 
         [Route("store/all")]
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         [ProducesResponseType(typeof(List<Transaction>), 200)]
         [ProducesResponseType(typeof(string), 500)]
         public async Task<IActionResult> GetAllByNameAsync([FromQuery] string filter)
         {
             try
             {
-                return Ok(await _transactionService.GetAllByNameAsync(filter));
+                return Ok(new TransactionListResponse(await _transactionService.GetAllByNameAsync(filter)));
             }
             catch (Exception ex)
             {

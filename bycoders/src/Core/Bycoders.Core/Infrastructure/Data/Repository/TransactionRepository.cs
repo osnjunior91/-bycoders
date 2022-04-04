@@ -19,6 +19,11 @@ namespace Bycoders.Domain.Infrastructure.Data.Repository
             _dataset = dataContext.Set<Transaction>();
         }
 
+        public async Task<List<Transaction>> GetAllAsync()
+        {
+            return await _dataset.AsQueryable().Include(fk => fk.Type).ToListAsync();
+        }
+
         public async Task<List<Transaction>> GetAllByNameAsync(string storeName)
         {
             return await _dataset.AsQueryable().Where(x => x.StoreName.Contains(storeName))

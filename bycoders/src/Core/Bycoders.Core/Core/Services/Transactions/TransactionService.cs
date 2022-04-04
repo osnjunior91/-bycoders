@@ -17,7 +17,9 @@ namespace Bycoders.Domain.Core.Services
 
         public async Task<List<Transaction>> GetAllByNameAsync(string storeName)
         {
-            return await _transactionRepository.GetAllByNameAsync(storeName);
+            return (storeName?.Length > 0) 
+                ? await _transactionRepository.GetAllByNameAsync(storeName)
+                : await _transactionRepository.GetAllAsync();
         }
 
         public async Task InsertListAsync(List<Transaction> items)

@@ -9,5 +9,6 @@ namespace Bycoders.Domain.Infrastructure.Data.Repository
     {
         Task InsertListAsync(List<Transaction> items);
         Task<List<Transaction>> GetAllByNameAsync(string storeName);
+        Task<List<Transaction>> GetAllAsync();
     }
 }
