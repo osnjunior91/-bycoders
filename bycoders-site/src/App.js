@@ -1,7 +1,16 @@
+import { Menu } from './components/commom';
+import Login from './components/features';
+import './App.css'
+
 function App() {
   return (
     <div className="App">
-      <h1>Teste</h1>
+      <div>
+        <Menu />
+      </div>
+      <div>
+        <Login />
+      </div>
     </div>
   );
 }
