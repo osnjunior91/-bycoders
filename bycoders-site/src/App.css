@@ -1,4 +1,13 @@
-.App{
-    width: '100vw';
-    height: '100vh';
+.app{
+    width: 100vw;
+    height: 100vh;
+}
+.container{
+    width: 90vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }

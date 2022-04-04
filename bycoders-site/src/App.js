@@ -1,15 +1,15 @@
 import { Menu } from './components/commom';
-import Login from './components/features';
+import { Upload } from './components/features';
 import './App.css'
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <div>
         <Menu />
       </div>
-      <div>
-        <Login />
+      <div className="container" >
+        <Upload />
       </div>
     </div>
   );
