@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Bycoders.Domain.Core.Services.Upload
 {
-    public class UploadFile : IUploadFile
+    public class UploadFileService : IUploadFileService
     {
         private readonly ITransactionService _transactionService;
-        public UploadFile(ITransactionService transactionService)
+        public UploadFileService(ITransactionService transactionService)
         {
             _transactionService = transactionService;
         }

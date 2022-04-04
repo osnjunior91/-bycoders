@@ -10,8 +10,8 @@ namespace Bycoders.Api.Controllers
     [ApiController]
     public class BulkController : ControllerBase
     {
-        private readonly IUploadFile _uploadFileService;
-        public BulkController(IUploadFile uploadFileService)
+        private readonly IUploadFileService _uploadFileService;
+        public BulkController(IUploadFileService uploadFileService)
         {
             _uploadFileService = uploadFileService;
         }

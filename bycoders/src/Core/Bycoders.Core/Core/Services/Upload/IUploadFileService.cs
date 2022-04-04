@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Bycoders.Domain.Core.Services.Upload
 {
-    public interface IUploadFile
+    public interface IUploadFileService
     {
         Task UploadFileAsync(IFormFile file);
     }

@@ -10,7 +10,7 @@ namespace Bycoders.Domain.InversionOfControl
     {
         public static void AddServiceDependency(this IServiceCollection services)
         {
-            services.AddScoped<IUploadFile, UploadFile>();
+            services.AddScoped<IUploadFileService, UploadFileService>();
             services.AddScoped<ITransactionRepository, TransactionRepository>();
             services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<IAuthService, AuthService>();
