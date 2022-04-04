@@ -1,3 +1,4 @@
 import Menu from "./menu";
+import TableDetail from './tables'
 
-export { Menu }
+export { Menu, TableDetail }

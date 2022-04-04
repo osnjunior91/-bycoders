@@ -33,14 +33,14 @@ namespace Bycoders.Domain.Infrastructure.Data.Model
             CreatedAt = createdAt;
         }
 
-        public int TypeTransactionCode { get; set; }
-        public TypeTransaction Type { get; set; }
-        public DateTime Date { get; set; }
-        public float Value { get; set; }
-        public string PersonDocument { get; set; }
-        public string CardNumber { get; set; }
-        public string StoreManager { get; set; }
-        public string StoreName { get; set; }
+        public int TypeTransactionCode { get; private set; }
+        public TypeTransaction Type { get; private set; }
+        public DateTime Date { get; private  set; }
+        public float Value { get; private  set; }
+        public string PersonDocument { get; private  set; }
+        public string CardNumber { get; private  set; }
+        public string StoreManager { get; private  set; }
+        public string StoreName { get; private  set; }
 
         public static explicit operator Transaction(string line)
         {

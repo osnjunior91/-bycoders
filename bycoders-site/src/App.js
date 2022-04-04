@@ -1,5 +1,5 @@
 import { Menu } from './components/commom';
-import { Upload } from './components/features';
+import { TransactionsView } from './components/features';
 import './App.css'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
         <Menu />
       </div>
       <div className="container" >
-        <Upload />
+        <TransactionsView />
       </div>
     </div>
   );

@@ -1,14 +1,12 @@
 ﻿using Bycoders.Domain.Infrastructure.Data.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Bycoders.Api.Model.Transactions
 {
     public class TransactionListResponse
     {
-        public List<TransactionListResponseItem> Items { get; set; }
+        public List<TransactionListResponseItem> Items { get; private set; }
 
         public TransactionListResponse(List<Transaction> transactions)
         {
@@ -19,12 +17,9 @@ namespace Bycoders.Api.Model.Transactions
                 {
                     if(Items.Where(x => x.StoreName.Equals(item.StoreName)).Count() == 0)
                     {
-                        Items.Add(new TransactionListResponseItem()
-                        {
-                            StoreName = item.StoreName,
-                            Transactions = transactions.Where(x => x.StoreName.Equals(item.StoreName)).ToList(),
-                            Sum = transactions.Where(x => x.StoreName.Equals(item.StoreName)).ToList().Sum(s => s.Value)
-                        });
+                        Items.Add(new TransactionListResponseItem(item.StoreName,
+                            transactions.Where(x => x.StoreName.Equals(item.StoreName)).ToList(),
+                            transactions.Where(x => x.StoreName.Equals(item.StoreName)).ToList().Sum(s => s.Value)));
                     }
                 }
             }
@@ -32,8 +27,15 @@ namespace Bycoders.Api.Model.Transactions
     }
     public class TransactionListResponseItem
     {
-        public string StoreName { get; set; }
-        public List<Transaction> Transactions { get; set; }
-        public float Sum { get; set; }
+        public TransactionListResponseItem(string storeName, List<Transaction> transactions, float sum)
+        {
+            StoreName = storeName;
+            Transactions = new List<Transaction>(transactions);
+            Sum = sum;
+        }
+        public string StoreName { get; private set; }
+        public List<Transaction> Transactions { get; private set; }
+        public float Sum { get; private set; }
+
     }
 }
