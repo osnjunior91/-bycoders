@@ -10,12 +10,12 @@ namespace Bycoders.Api.Model.Transactions
 
         public TransactionListResponse(List<Transaction> transactions)
         {
-            Items = new List<TransactionListResponseItem>();
-            if(transactions?.Count > 0)
+            if (transactions?.Count > 0)
             {
+                Items = new List<TransactionListResponseItem>();
                 foreach (var item in transactions)
                 {
-                    if(Items.Where(x => x.StoreName.Equals(item.StoreName)).Count() == 0)
+                    if (Items.Where(x => x.StoreName.Equals(item.StoreName)).Count() == 0)
                     {
                         Items.Add(new TransactionListResponseItem(item.StoreName,
                             transactions.Where(x => x.StoreName.Equals(item.StoreName)).ToList(),

@@ -15,7 +15,7 @@ namespace Bycoders.Domain.Infrastructure.Data.Model
             if (date == DateTime.MinValue)
                 throw new ArgumentNullException(nameof(date));
             Date = date;
-            if (value == float.MinValue)
+            if (value == 0)
                 throw new ArgumentNullException(nameof(value));
             Value = value;
             if (personDocument.Length < 11)
@@ -35,12 +35,12 @@ namespace Bycoders.Domain.Infrastructure.Data.Model
 
         public int TypeTransactionCode { get; private set; }
         public TypeTransaction Type { get; private set; }
-        public DateTime Date { get; private  set; }
-        public float Value { get; private  set; }
-        public string PersonDocument { get; private  set; }
-        public string CardNumber { get; private  set; }
-        public string StoreManager { get; private  set; }
-        public string StoreName { get; private  set; }
+        public DateTime Date { get; private set; }
+        public float Value { get; private set; }
+        public string PersonDocument { get; private set; }
+        public string CardNumber { get; private set; }
+        public string StoreManager { get; private set; }
+        public string StoreName { get; private set; }
 
         public static explicit operator Transaction(string line)
         {
