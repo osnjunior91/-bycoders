@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Bycoders.Api.Controllers
 {
+    /// <summary>
+    /// Controller for authentication user
+    /// </summary>
     [Route("api/v1/auth")]
     [ApiController]
     public class AuthController : ControllerBase
@@ -19,7 +22,11 @@ namespace Bycoders.Api.Controllers
         {
             _authService = authService;
         }
-
+        /// <summary>
+        /// User Login
+        /// </summary>
+        /// <param name="login">Object with email e password</param>
+        /// <returns>User Token</returns>
         [Route("login")]
         [HttpPost]
         [ProducesResponseType(typeof(string), 201)]

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bycoders.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Bycoders.Api.Controllers.AuthController">
+            <summary>
+            Controller for authentication user
+            </summary>
+        </member>
+        <member name="M:Bycoders.Api.Controllers.AuthController.Login(Bycoders.Domain.Infrastructure.Data.Model.Login)">
+            <summary>
+            User Login
+            </summary>
+            <param name="login">Object with email e password</param>
+            <returns>User Token</returns>
+        </member>
+    </members>
+</doc>

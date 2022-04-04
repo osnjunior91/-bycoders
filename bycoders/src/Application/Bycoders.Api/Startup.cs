@@ -9,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace Bycoders.Api
@@ -30,8 +33,12 @@ namespace Bycoders.Api
             services.AddServiceDependency();
             services.AddSwaggerGen(swagger =>
             {
-                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "Bycoders.Api", Version = "v1" });
+                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "bycoders.xml", Version = "v1" });
+                var xmlFile = $"bycoders.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                swagger.IncludeXmlComments(xmlPath);
 
+                swagger.CustomSchemaIds(x => x.FullName);
 
                 swagger.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
@@ -89,7 +96,7 @@ namespace Bycoders.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Bycoders.Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "bycoders v1"));
             }
 
             app.UseHttpsRedirection();
