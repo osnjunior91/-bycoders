@@ -12,6 +12,7 @@ const BycodersApiFormData = axios.create({
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'multipart/form-data',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token-auth')
     }
 });
 

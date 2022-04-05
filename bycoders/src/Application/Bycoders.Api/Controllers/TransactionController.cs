@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Bycoders.Api.Controllers
 {
+    /// <summary>
+    /// Controller transactions
+    /// </summary>
     [Route("api/v1/transaction")]
     [ApiController]
     public class TransactionController : ControllerBase
@@ -19,9 +22,13 @@ namespace Bycoders.Api.Controllers
             _transactionService = transactionService;
         }
 
+        /// <summary>
+        /// Find all query or find by name
+        /// </summary>
+        /// <param name="filter">Name of store(optional)</param>
+        /// <returns>List of transactions</returns>
         [Route("store/all")]
         [HttpGet]
-        //[Authorize]
         [ProducesResponseType(typeof(List<Transaction>), 200)]
         [ProducesResponseType(typeof(string), 500)]
         public async Task<IActionResult> GetAllByNameAsync([FromQuery] string filter)

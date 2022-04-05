@@ -16,5 +16,29 @@
             <param name="login">Object with email e password</param>
             <returns>User Token</returns>
         </member>
+        <member name="T:Bycoders.Api.Controllers.BulkController">
+            <summary>
+            Controler to load file in system
+            </summary>
+        </member>
+        <member name="M:Bycoders.Api.Controllers.BulkController.FileUpload(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Load .txt file for database of system, you need authentication to use this
+            </summary>
+            <param name="file">File .txt</param>
+            <returns></returns>
+        </member>
+        <member name="T:Bycoders.Api.Controllers.TransactionController">
+            <summary>
+            Controller transactions
+            </summary>
+        </member>
+        <member name="M:Bycoders.Api.Controllers.TransactionController.GetAllByNameAsync(System.String)">
+            <summary>
+            Find all query or find by name
+            </summary>
+            <param name="filter">Name of store(optional)</param>
+            <returns>List of transactions</returns>
+        </member>
     </members>
 </doc>

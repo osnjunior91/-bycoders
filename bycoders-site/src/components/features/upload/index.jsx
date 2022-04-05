@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { Grid, Button } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
 import { UploadFile } from "../../../services";
 
 
 function Upload() {
     const [file, setFile] = useState();
+    const navigate = useNavigate();
     const submitForm = () => {
         UploadFile(file).then(() => {
-            alert('Arquivo Carregado')
+            alert('Arquivo Carregado');
+            navigate('/transactions');
+        }).catch((error) => {
+            alert('Falha ao carregar o arquivo')
+            console.log(error);
         })
-            .catch((error) => {
-                alert('Falha ao carregar o arquivo')
-                console.log(error);
-            })
     };
     return (
         <Grid

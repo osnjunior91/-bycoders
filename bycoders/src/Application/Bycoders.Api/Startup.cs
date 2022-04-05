@@ -39,7 +39,7 @@ namespace Bycoders.Api
             }));
             services.AddSwaggerGen(swagger =>
             {
-                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "bycoders.xml", Version = "v1" });
+                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "Bycoders", Version = "v1" });
                 var xmlFile = $"bycoders.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 swagger.IncludeXmlComments(xmlPath);

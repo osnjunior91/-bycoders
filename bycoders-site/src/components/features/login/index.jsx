@@ -15,10 +15,12 @@ function Login() {
             .then(({ data }) => {
                 dispatch(Authentication_Success({
                     token: data
-                }))
+                }));
+                sessionStorage.setItem('token-auth', data);
                 navigate('/upload');
             })
             .catch((erro) => {
+                alert('Falha no login');
                 console.log(erro);
             });
     };

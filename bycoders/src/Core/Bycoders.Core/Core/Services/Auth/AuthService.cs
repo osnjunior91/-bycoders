@@ -18,6 +18,10 @@ namespace Bycoders.Domain.Core.Services.Auth
         }
         public string Login(Login login)
         {
+            if(login.Email != "admin" && login.Password != "admin")
+            {
+                throw new ArgumentException("Invalid parameters");
+            }
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["SecretKey"]);
             var tokenDescriptor = new SecurityTokenDescriptor

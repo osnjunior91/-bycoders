@@ -23,7 +23,7 @@ namespace Bycoders.Test.Domain.Core.Services
             _configuration.SetupGet(x => x[It.Is<string>(s => s == "SecretKey")]).Returns("DmSAzDlUXRak7hdXwY2em5sdKOmXz83F");
         }
 
-        [TestCase("teste@teste.com", "123456")]
+        [TestCase("admin", "admin")]
         public void When_Auth_Login_IsOk(string email, string password)
         {
             var loginService = new AuthService(_configuration.Object);
