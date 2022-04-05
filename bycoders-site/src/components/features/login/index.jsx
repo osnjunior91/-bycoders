@@ -1,6 +1,27 @@
-import React from 'react'
-import { Grid, TextField, Button } from '@material-ui/core'
+import React, { useState } from 'react';
+import { Grid, TextField, Button } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Auth } from "../../../services";
+import { Authentication_Success } from '../../../store/actions';
+
 function Login() {
+    const dispatch = useDispatch();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const submitForm = () => {
+        Auth({ email, password })
+            .then(({ data }) => {
+                dispatch(Authentication_Success({
+                    token: data
+                }))
+                navigate('/upload');
+            })
+            .catch((erro) => {
+                console.log(erro);
+            });
+    };
     return (
         <Grid
             container
@@ -15,7 +36,14 @@ function Login() {
                 justifyContent="center"
                 alignItems="center"
             >
-                <TextField fullWidth id="outlined-basic" label="Outlined" variant="outlined" />
+                <TextField
+                    fullWidth
+                    id="email"
+                    label="Email"
+                    variant="outlined"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
             </Grid>
             <Grid
                 item
@@ -23,7 +51,15 @@ function Login() {
                 justifyContent="center"
                 alignItems="center"
             >
-                <TextField fullWidth id="outlined-basic" label="Outlined" variant="outlined" />
+                <TextField
+                    fullWidth
+                    type="password"
+                    id="password"
+                    label="Senha"
+                    variant="outlined"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
             </Grid>
             <Grid
                 item
@@ -31,7 +67,13 @@ function Login() {
                 justifyContent="center"
                 alignItems="center"
             >
-                <Button fullWidth variant="contained" color="primary">
+                <Button
+                    disabled={!email || !password}
+                    fullWidth
+                    onClick={submitForm}
+                    variant="contained"
+                    color="primary"
+                >
                     Login
                 </Button>
             </Grid>

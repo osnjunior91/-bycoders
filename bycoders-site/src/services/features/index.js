@@ -1,4 +1,4 @@
-import { BycodersApi } from "../axios";
+import { BycodersApi, BycodersApiFormData } from "../axios";
 
 const GetTransactions = () => {
     return BycodersApi.get('/transaction/store/all');
@@ -7,7 +7,11 @@ const GetTransactions = () => {
 const UploadFile = (file) => {
     const formData = new FormData();
     formData.append('file', file);
-    return BycodersApi.post('/bulk/file/upload', formData);
+    return BycodersApiFormData.post('/bulk/file/upload', formData);
 }
 
-export { GetTransactions, UploadFile }
+const Auth = (login) => {
+    return BycodersApi.post('/auth/login', login);
+}
+
+export { GetTransactions, UploadFile, Auth }
