@@ -20,7 +20,7 @@ namespace Bycoders.Api.Controllers
         }
 
         [Route("store/all")]
-        [HttpPost]
+        [HttpGet]
         //[Authorize]
         [ProducesResponseType(typeof(List<Transaction>), 200)]
         [ProducesResponseType(typeof(string), 500)]

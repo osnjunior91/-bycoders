@@ -31,6 +31,12 @@ namespace Bycoders.Api
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetValue<string>("ConnectionString")));
             services.AddControllers();
             services.AddServiceDependency();
+            services.AddCors(co => co.AddPolicy("Policy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
             services.AddSwaggerGen(swagger =>
             {
                 swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "bycoders.xml", Version = "v1" });
@@ -100,6 +106,8 @@ namespace Bycoders.Api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("Policy");
 
             app.UseRouting();
 

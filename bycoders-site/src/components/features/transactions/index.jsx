@@ -1,39 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Grid, Accordion, AccordionSummary, Typography, AccordionDetails } from '@material-ui/core'
 import { TableDetail } from './../../commom';
+import { GetTransactions } from "../../../services";
 
 function TransactionsView() {
+    const [transactions, setTransactions] = useState([]);
+    useEffect(() => {
+        console.log("asdjhasjdaskjdhasjk")
+        GetTransactions()
+            .then(({ data }) => {
+                setTransactions(data.items);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+
     return (
-        <Grid
-            container
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            spacing={3}
-        >
-            <Accordion>
-                <AccordionSummary
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                >
-                    <Typography>Accordion 1</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <TableDetail />
-                </AccordionDetails>
-            </Accordion>
-            <Accordion>
-                <AccordionSummary
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
-                >
-                    <Typography>Accordion 2</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <TableDetail />
-                </AccordionDetails>
-            </Accordion>
-        </Grid>
+        <div>
+            {
+                transactions?.map(item => {
+                    return (
+                        <Accordion style={{ width: '90vw' }}>
+                            <AccordionSummary
+                                aria-controls="transactions-content"
+                                id="transactions-header"
+                            >
+                                <Typography>{item.storeName}</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <TableDetail item={item} />
+                            </AccordionDetails>
+                        </Accordion>
+                    )
+                })
+            }
+        </div>
     )
 }
 
