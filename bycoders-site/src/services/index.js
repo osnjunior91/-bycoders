@@ -1,3 +1,3 @@
-import { GetTransactions } from "./features";
+import { GetTransactions, UploadFile } from "./features";
 
-export { GetTransactions }
+export { GetTransactions, UploadFile }

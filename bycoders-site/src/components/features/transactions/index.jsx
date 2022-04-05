@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Grid, Accordion, AccordionSummary, Typography, AccordionDetails } from '@material-ui/core'
+import { Accordion, AccordionSummary, Typography, AccordionDetails } from '@material-ui/core'
 import { TableDetail } from './../../commom';
 import { GetTransactions } from "../../../services";
 
 function TransactionsView() {
     const [transactions, setTransactions] = useState([]);
     useEffect(() => {
-        console.log("asdjhasjdaskjdhasjk")
         GetTransactions()
             .then(({ data }) => {
                 setTransactions(data.items);

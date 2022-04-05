@@ -1,6 +1,19 @@
-import React from 'react'
-import { Grid, Button } from '@material-ui/core'
+import React, { useState } from 'react';
+import { Grid, Button } from '@material-ui/core';
+import { UploadFile } from "../../../services";
+
+
 function Upload() {
+    const [file, setFile] = useState();
+    const submitForm = () => {
+        UploadFile(file).then(() => {
+            alert('Arquivo Carregado')
+        })
+            .catch((error) => {
+                alert('Falha ao carregar o arquivo')
+                console.log(error);
+            })
+    };
     return (
         <Grid
             container
@@ -16,10 +29,11 @@ function Upload() {
                 alignItems="center"
             >
                 <input
-                    accept="image/*"
-                    id="contained-button-file"
+                    id="file"
+                    accept='.txt'
                     multiple
                     type="file"
+                    onChange={(e) => setFile(e.target.files[0])}
                 />
             </Grid>
             <Grid
@@ -28,7 +42,7 @@ function Upload() {
                 justifyContent="center"
                 alignItems="center"
             >
-                <Button fullWidth variant="contained" color="primary">
+                <Button disabled={!file} onClick={submitForm} fullWidth variant="contained" color="primary">
                     Carregar Arquivo
                 </Button>
             </Grid>

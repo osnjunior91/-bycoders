@@ -19,7 +19,7 @@ namespace Bycoders.Api.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(string), 201)]
         [ProducesResponseType(typeof(string), 500)]
-        public async Task<IActionResult> FileUpload(IFormFile file)
+        public async Task<IActionResult> FileUpload([FromForm]IFormFile file)
         {
             try
             {
