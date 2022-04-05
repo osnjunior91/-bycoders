@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# Bycoders Teste
+## Teste para desenvolvedor na empresa Bycoders
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Importar arquivo de texto com os registros.
+- Interpretar dados formatandos os para o sistema.
+- Exibir lista de dados importados com dados por loja e saldo.
+- Possuir testes automatizados.
+- Possuir documentacao da API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Tech
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Tecnologias e conceitos usados :
 
-### `npm run build`
+- [.NetCore](https://dotnet.microsoft.com/en-us/learn/dotnet/hello-world-tutorial/install) - Backend!
+- [ReactJs](https://reactjs.org/) - Frontend
+- [EF Core](https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli) - Conexao com banco de dados.
+- [Sql Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) - Banco de dados
+- [Material Ui](https://mui.com/pt/) - Componentes de tela.
+- [Axios](https://github.com/axios/axios) - Requisicoes Http
+- [Swagger](https://swagger.io/) - Documentar Api
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Instalacao
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Clonar Repositorio
+Basta clonar o repositório normalmente pelo GitHub, ou como arquivo .zip.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Rodar Migration
 
-### `npm run eject`
+-Insira dos dados do seu banco sql na connection string dentro do arquivo **appsettings.json** no projeto **Bycoders.Api**.
+-Agora selecione o projeto **Bycoders.Domain**.
+-Execute os seguintes comandos:
+```sh
+Add-Migration InitialCreate
+update-database
+```
+Apos isso seu banco deve ficar com a seguinte estrutura:
+![strong text](https://github.com/osnjunior91/-bycoders/blob/main/images/FinalDatabase.png?raw=true)
+> Note: Deve se verificar se a tabela TypeTransactions foi populada corretamente.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Instalar dependencias do portal
+-Acessar pasta **\-bycoders\bycoders-site**.
+-Rodar o comando
+```sh
+npm install
+```
+-Aguardar a instalacao dos pacotes
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Executar aplicacao
+### Executar Api
+Basta definir o projeto **Bycoders.Api** como principal, e executar usando o IIS. Apos executar aparecera a tela do Swagger contendo a documentacao da api, como na imagem:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![strong text](https://github.com/osnjunior91/-bycoders/blob/main/images/swagger.png?raw=true)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Executar Web Site
+-Acessar pasta **\-bycoders\bycoders-site**.
+-Definir no arquivo **-bycoders\bycoders-site\src\services\axios\index.js** o endereco base da api
+-Rodar o comando
+```sh
+npm start
+```
 
-## Learn More
+## Usar a aplicacao
+- Para acesso aos sistema devem ser usados as credenciais:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    | Propriedade | Valor |
+    | ------ | ------ |
+    | User/Email | **admin** |
+    | Password | **admin**  |
+- O metodo de carregar o arquivo necessita de autenticacao para funcionar, mas os de visualizar nao.
+- Os testes possuem diversos casos, e foram feitos visando as principais rotinas da aplicacao.
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+MIT
 
-### Code Splitting
+**Free Software!**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-### Analyzing the Bundle Size
+   [dill]: <https://github.com/joemccann/dillinger>
+   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
+   [john gruber]: <http://daringfireball.net>
+   [df1]: <http://daringfireball.net/projects/markdown/>
+   [markdown-it]: <https://github.com/markdown-it/markdown-it>
+   [Ace Editor]: <http://ace.ajax.org>
+   [node.js]: <http://nodejs.org>
+   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
+   [jQuery]: <http://jquery.com>
+   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
+   [express]: <http://expressjs.com>
+   [AngularJS]: <http://angularjs.org>
+   [Gulp]: <http://gulpjs.com>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
+   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
+   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
+   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
+   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
+   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
