@@ -42,6 +42,7 @@ update-database
 ```
 Apos isso seu banco deve ficar com a seguinte estrutura:
 ![strong text](https://github.com/osnjunior91/-bycoders/blob/main/images/FinalDatabase.png?raw=true)
+> Note: Deve se verificar se a tabela TypeTransactions foi populada corretamente.
 
 ### Instalar dependencias do portal
 -Acessar pasta **\-bycoders\bycoders-site**.
@@ -56,6 +57,26 @@ npm install
 Basta definir o projeto **Bycoders.Api** como principal, e executar usando o IIS. Apos executar aparecera a tela do Swagger contendo a documentacao da api, como na imagem:
 
 ![strong text](https://github.com/osnjunior91/-bycoders/blob/main/images/swagger.png?raw=true)
+
+### Executar Web Site
+-Acessar pasta **\-bycoders\bycoders-site**.
+-Definir no arquivo **-bycoders\bycoders-site\src\services\axios\index.js** o endereco base da api
+-Rodar o comando
+```sh
+npm start
+```
+
+## Usar a aplicacao
+- Para acesso aos sistema devem ser usados as credenciais:
+
+    | Propriedade | Valor |
+    | ------ | ------ |
+    | User/Email | **admin** |
+    | Password | **admin**  |
+- O metodo de carregar o arquivo necessita de autenticacao para funcionar, mas os de visualizar nao.
+- Os testes possuem diversos casos, e foram feitos visando as principais rotinas da aplicacao.
+
+
 ## License
 
 MIT
